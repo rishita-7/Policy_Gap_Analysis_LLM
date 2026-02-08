@@ -43,3 +43,15 @@ def find_best_segment_match(clause, policy_segments):
         "best_segment_text": best_segment["text"] if best_segment else None
     }
 
+
+def classify_coverage(score):
+    """
+    Classify coverage level based on match score.
+    """
+
+    if score == 0.0:
+        return "Missing"
+    elif score < 0.5:
+        return "Partial"
+    else:
+        return "Covered"
