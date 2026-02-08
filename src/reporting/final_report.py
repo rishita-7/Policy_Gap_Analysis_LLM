@@ -34,14 +34,14 @@ def generate_compliance_report(analysis_results):
             "status": result["coverage"],
             "severity": result["severity"],
             "matched_text": result.get("matched_text", []),
-            "recommendation": result["recommendation"]
+            "suggestion": result["suggestion"]
         })
 
         if result["status"] != "Covered":
             report["roadmap"].append({
                 "clause_id": result["clause_id"],
                 "priority": result["priority"],
-                "action": result["recommendation"]
+                "action": result["suggestion"]
             })
 
     return report
