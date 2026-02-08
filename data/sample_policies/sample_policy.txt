@@ -1,0 +1,11 @@
+Information Security Policy
+
+The organization maintains an inventory of critical information systems
+and software assets.
+
+User access to systems is granted based on business requirements and
+is reviewed periodically.
+
+An incident response plan is established to handle cybersecurity incidents.
+
+Backup and recovery procedures are documented to ensure business continuity.
