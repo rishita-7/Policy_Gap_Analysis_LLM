@@ -99,10 +99,20 @@ def main():
 
 
     suggestions = generate_policy_suggestions(gap_report)
+    
+    # Build lookup table by clause_id
+    suggestion_map = {
+        s["clause_id"]: s["suggestion"]
+        for s in suggestions
+    }
+    
+    # Attach suggestion to EVERY clause
+    for gap in gap_report:
+        gap["suggestion"] = suggestion_map.get(
+            gap["clause_id"],
+            "No improvement required. Policy is adequately covered."
+        )
 
-    # 🔹 Merge suggestions back into gap_report
-    for gap, suggestion in zip(gap_report, suggestions):
-        gap["suggestion"] = suggestion["suggestion"]
     
     print("\n=== POLICY IMPROVEMENT SUGGESTIONS (Phase 5.2 Validation) ===\n")
     for g in gap_report:
