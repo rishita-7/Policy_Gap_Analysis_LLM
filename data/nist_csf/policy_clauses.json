@@ -1,0 +1,56 @@
+[
+  {
+    "clause_id": "ID-AM-01",
+    "nist_function": "Identify",
+    "nist_category": "ID.AM",
+    "title": "Asset Inventory Management",
+    "description": "The organization shall maintain and document an inventory of physical devices, software platforms, and information assets.",
+    "keywords": ["asset inventory", "hardware", "software", "information assets"],
+    "severity": "High"
+  },
+  {
+    "clause_id": "PR-AC-01",
+    "nist_function": "Protect",
+    "nist_category": "PR.AC",
+    "title": "Access Control Policy",
+    "description": "The organization shall define, document, and implement access control policies governing user access to systems and data.",
+    "keywords": ["access control", "authentication", "authorization", "user access"],
+    "severity": "High"
+  },
+  {
+    "clause_id": "PR-IP-01",
+    "nist_function": "Protect",
+    "nist_category": "PR.IP",
+    "title": "Information Protection Processes",
+    "description": "The organization shall establish and maintain procedures to protect information in accordance with security policies.",
+    "keywords": ["information protection", "procedures", "policy enforcement"],
+    "severity": "Medium"
+  },
+  {
+    "clause_id": "DE-CM-01",
+    "nist_function": "Detect",
+    "nist_category": "DE.CM",
+    "title": "Security Monitoring",
+    "description": "The organization shall monitor information systems to identify cybersecurity events and anomalies.",
+    "keywords": ["monitoring", "logging", "anomaly detection"],
+    "severity": "Medium"
+  },
+  {
+    "clause_id": "RS-RP-01",
+    "nist_function": "Respond",
+    "nist_category": "RS.RP",
+    "title": "Incident Response Planning",
+    "description": "The organization shall establish and maintain an incident response plan defining roles, responsibilities, and communication processes.",
+    "keywords": ["incident response", "roles", "responsibilities", "communication"],
+    "severity": "High"
+  },
+  {
+    "clause_id": "RC-RP-01",
+    "nist_function": "Recover",
+    "nist_category": "RC.RP",
+    "title": "Recovery Planning",
+    "description": "The organization shall implement recovery plans to restore systems and data following cybersecurity incidents.",
+    "keywords": ["recovery planning", "disaster recovery", "business continuity"],
+    "severity": "Medium"
+  }
+]
