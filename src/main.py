@@ -1,7 +1,7 @@
 from nlp.preprocessing import segment_policy
 from nlp.clause_preprocessing import preprocess_clauses
 from nlp.matching import find_best_segment_match, classify_coverage
-
+from reporting.gap_report import generate_gap_report
 
 import json
 import os
@@ -86,6 +86,12 @@ def main():
     print("\n=== POLICY SEGMENTS (Phase 4.1 Validation) ===\n")
     for seg in policy_segments:
         print(f"[{seg['id']}] {seg['text']}")
+
+    gap_report = generate_gap_report(clauses, policy_segments)
+
+    print("\n=== STRUCTURED GAP REPORT (Phase 5.1 Validation) ===\n")
+    for item in gap_report:
+        print(item)
 
 
 if __name__ == "__main__":
