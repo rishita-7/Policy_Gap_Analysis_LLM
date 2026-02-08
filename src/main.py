@@ -1,4 +1,6 @@
-from src.nlp.preprocessing import segment_policy
+from nlp.preprocessing import segment_policy
+from nlp.clause_preprocessing import preprocess_clauses
+
 import json
 import os
 
@@ -39,6 +41,14 @@ def main():
     print("Loading policy clauses...")
     clauses = load_policy_clauses(clauses_path)
     print(f"Loaded {len(clauses)} policy clauses.\n")
+    
+    clauses = preprocess_clauses(clauses)
+    print("=== BENCHMARK CLAUSES (Phase 4.2 Validation) ===\n")
+    for clause in clauses:
+        print(f"[{clause['id']}] {clause['requirement_text']}")
+        print(f"  Normalized Requirement: {clause['normalized_requirement']}")
+        print(f"  Normalized Keywords: {clause['normalized_keywords']}\n")
+        
 
     print("Loading policy document...")
     policy_text = load_policy_text(policy_path)
