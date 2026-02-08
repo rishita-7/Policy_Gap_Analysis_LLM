@@ -16,7 +16,8 @@ def load_policy_clauses(filepath):
         clauses = json.load(file)
 
     return clauses
-    
+
+
 def load_policy_text(filepath):
     """
     Load organizational policy text from a file.
@@ -41,29 +42,30 @@ def main():
     print("Loading policy clauses...")
     clauses = load_policy_clauses(clauses_path)
     print(f"Loaded {len(clauses)} policy clauses.\n")
-    
+
+    # 🔹 Phase 4.2 – Benchmark Clause Preprocessing
     clauses = preprocess_clauses(clauses)
+
     print("=== BENCHMARK CLAUSES (Phase 4.2 Validation) ===\n")
     for clause in clauses:
-        print(f"[{clause['id']}] {clause['requirement_text']}")
+        print(f"[{clause['clause_id']}] {clause['title']}")
+        print(f"  Description: {clause['description']}")
         print(f"  Normalized Requirement: {clause['normalized_requirement']}")
         print(f"  Normalized Keywords: {clause['normalized_keywords']}\n")
-        
 
     print("Loading policy document...")
     policy_text = load_policy_text(policy_path)
     print("Policy text loaded successfully.\n")
 
-
     print("Policy Preview:")
     print(policy_text[:300])
 
+    # 🔹 Phase 4.1 – Policy Segmentation
     policy_segments = segment_policy(policy_text)
 
     print("\n=== POLICY SEGMENTS (Phase 4.1 Validation) ===\n")
     for seg in policy_segments:
         print(f"[{seg['id']}] {seg['text']}")
-
 
 
 if __name__ == "__main__":
