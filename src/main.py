@@ -100,9 +100,16 @@ def main():
 
     suggestions = generate_policy_suggestions(gap_report)
 
+    # 🔹 Merge suggestions back into gap_report
+    for gap, suggestion in zip(gap_report, suggestions):
+        gap["suggestion"] = suggestion["suggestion"]
+    
     print("\n=== POLICY IMPROVEMENT SUGGESTIONS (Phase 5.2 Validation) ===\n")
-    for s in suggestions:
-        print(s)
+    for g in gap_report:
+        print({
+            "clause_id": g["clause_id"],
+            "suggestion": g["suggestion"]
+        })
 
     roadmap = generate_improvement_roadmap(gap_report)
 
