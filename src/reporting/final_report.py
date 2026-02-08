@@ -11,9 +11,9 @@ def generate_compliance_report(analysis_results):
     }
 
     total = len(analysis_results)
-    covered = sum(1 for r in analysis_results if r["status"] == "Covered")
-    partial = sum(1 for r in analysis_results if r["status"] == "Partial")
-    missing = sum(1 for r in analysis_results if r["status"] == "Missing")
+    covered = sum(1 for r in analysis_results if r["coverage"] == "Covered")
+    partial = sum(1 for r in analysis_results if r["coverage"] == "Partial")
+    missing = sum(1 for r in analysis_results if r["coverage"] == "Missing")
 
     report["statistics"] = {
         "total_clauses": total,
@@ -31,7 +31,7 @@ def generate_compliance_report(analysis_results):
     for result in analysis_results:
         report["findings"].append({
             "clause_id": result["clause_id"],
-            "status": result["status"],
+            "status": result["coverage"],
             "severity": result["severity"],
             "matched_text": result.get("matched_text", []),
             "recommendation": result["recommendation"]
