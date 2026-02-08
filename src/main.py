@@ -123,6 +123,16 @@ def main():
 
     roadmap = generate_improvement_roadmap(gap_report)
 
+    # 🔹 Merge priority back into gap_report
+    priority_map = {
+        r["clause_id"]: r["priority"]
+        for r in roadmap
+    }
+    
+    for item in gap_report:
+        item["priority"] = priority_map.get(item["clause_id"], "Unassigned")
+
+
     print("\n=== IMPROVEMENT ROADMAP (Phase 5.3 Validation) ===\n")
     for r in roadmap:
         print(r)
