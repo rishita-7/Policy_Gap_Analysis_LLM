@@ -3,6 +3,8 @@ from nlp.clause_preprocessing import preprocess_clauses
 from nlp.matching import find_best_segment_match, classify_coverage
 from reporting.gap_report import generate_gap_report
 from remediation.policy_suggestions import generate_policy_suggestions
+from roadmap.improvement_roadmap import generate_improvement_roadmap
+
 
 
 import json
@@ -101,6 +103,14 @@ def main():
     print("\n=== POLICY IMPROVEMENT SUGGESTIONS (Phase 5.2 Validation) ===\n")
     for s in suggestions:
         print(s)
+
+    roadmap = generate_improvement_roadmap(gap_report)
+
+    print("\n=== IMPROVEMENT ROADMAP (Phase 5.3 Validation) ===\n")
+    for r in roadmap:
+        print(r)
+
+    
 
 
 if __name__ == "__main__":
