@@ -39,12 +39,8 @@ def main():
     clauses = load_policy_clauses(clauses_path)
     print(f"Loaded {len(clauses)} policy clauses.\n")
 
-    print("DEBUG: Policy path is ->", policy_path)
     print("Loading policy document...")
-    
     policy_text = load_policy_text(policy_path)
-    
-    print("DEBUG: Policy text length ->", len(policy_text))
     print("Policy text loaded successfully.\n")
 
 
