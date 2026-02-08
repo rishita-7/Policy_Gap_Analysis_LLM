@@ -48,6 +48,13 @@ def main():
     print("Policy Preview:")
     print(policy_text[:300])
 
+    policy_segments = segment_policy(policy_text)
+
+    print("\n=== POLICY SEGMENTS (Phase 4.1 Validation) ===\n")
+    for seg in policy_segments:
+        print(f"[{seg['id']}] {seg['text']}")
+
+
 
 if __name__ == "__main__":
     main()
