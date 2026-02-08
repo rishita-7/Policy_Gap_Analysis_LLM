@@ -4,7 +4,7 @@ from nlp.matching import find_best_segment_match, classify_coverage
 from reporting.gap_report import generate_gap_report
 from remediation.policy_suggestions import generate_policy_suggestions
 from roadmap.improvement_roadmap import generate_improvement_roadmap
-
+from reporting.final_report import generate_compliance_report
 
 
 import json
@@ -110,7 +110,18 @@ def main():
     for r in roadmap:
         print(r)
 
+    final_report = generate_compliance_report(gap_report)
+    print("\n=== FINAL COMPLIANCE REPORT (Phase 5.4 Validation) ===\n")
+
+    print("Summary:")
+    print(final_report["summary"])
     
+    print("\nStatistics:")
+    print(final_report["statistics"])
+    
+    print("\nPrioritized Roadmap:")
+    for item in final_report["roadmap"]:
+        print(item)
 
 
 if __name__ == "__main__":
