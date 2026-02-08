@@ -37,7 +37,7 @@ def generate_compliance_report(analysis_results):
             "suggestion": result["suggestion"]
         })
 
-        if result["status"] != "Covered":
+        if result["coverage"] != "Covered":
             report["roadmap"].append({
                 "clause_id": result["clause_id"],
                 "priority": result["priority"],
