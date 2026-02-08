@@ -2,6 +2,8 @@ from nlp.preprocessing import segment_policy
 from nlp.clause_preprocessing import preprocess_clauses
 from nlp.matching import find_best_segment_match, classify_coverage
 from reporting.gap_report import generate_gap_report
+from remediation.policy_suggestions import generate_policy_suggestions
+
 
 import json
 import os
@@ -92,6 +94,13 @@ def main():
     print("\n=== STRUCTURED GAP REPORT (Phase 5.1 Validation) ===\n")
     for item in gap_report:
         print(item)
+
+
+    suggestions = generate_policy_suggestions(gap_report)
+
+    print("\n=== POLICY IMPROVEMENT SUGGESTIONS (Phase 5.2 Validation) ===\n")
+    for s in suggestions:
+        print(s)
 
 
 if __name__ == "__main__":
