@@ -31,7 +31,7 @@ def generate_compliance_report(analysis_results):
     for result in analysis_results:
         report["findings"].append({
             "clause_id": result["clause_id"],
-            "status": result["coverage"],
+            "coverage": result["coverage"],
             "severity": result["severity"],
             "matched_text": result.get("matched_text", []),
             "suggestion": result["suggestion"]
