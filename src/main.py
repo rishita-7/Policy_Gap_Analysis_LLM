@@ -1,3 +1,4 @@
+from src.nlp.preprocessing import segment_policy
 import json
 import os
 
