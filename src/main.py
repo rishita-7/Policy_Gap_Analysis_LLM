@@ -117,6 +117,11 @@ def main():
     for r in roadmap:
         print(r)
 
+    print("\n=== DEBUG: gap_report keys ===\n")
+    for item in gap_report:
+        print(item["clause_id"], item.keys())
+
+
     final_report = generate_compliance_report(gap_report)
     print("\n=== FINAL COMPLIANCE REPORT (Phase 5.4 Validation) ===\n")
 
